@@ -12,7 +12,7 @@ const SideImage = ({ type }) => {
       <div className="absolute inset-0 z-10 bg-black text-gray-200 bg-opacity-40 text-lg  md:text-xl lg:text-2xl font-semibold flex items-end justify-end">
         <p className="pl-6 pb-8 md:pb-16 pr-12">
           {type === "seller"
-            ? "Unlock Opportunities, Harvest Success with CropConnect"
+            ? "Unlock Opportunities, Harvest Success with AgroConnect"
             : "Farm-Fresh Delights Await – Start Exploring Today!"}
         </p>
       </div>{" "}

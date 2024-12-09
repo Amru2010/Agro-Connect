@@ -13,6 +13,7 @@ import {
 import { captializeFirstLetter } from "../../utils/helper/captializeFirstLetter";
 
 const BarGraph = ({ data, color, xKey, yKey, title = "Graph Title" }) => {
+  console.log(data);
   return (
     <ResponsiveContainer width="100%" height={300}>
       <h2 className={`text-center font-semibold mb-4`}>{title}</h2>

@@ -15,7 +15,7 @@ function Hero() {
         <div className="z-10 absolute mx-auto max-w-screen-xl lg:px-24 px-4 sm:px-6 top-[50%] -translate-y-[50%]">
           <div className="max-w-xl text-center sm:text-left">
             <h1 className="text-3xl font-bold md:text-5xl">
-              Crop
+              Agro
               <strong className="font-bold text-rose-700">Connect</strong>
             </h1>
 

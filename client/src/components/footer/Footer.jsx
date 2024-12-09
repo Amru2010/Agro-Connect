@@ -11,16 +11,16 @@ const Footer = () => {
       <footer className="bg-red-900 text-white h-12 px-4 md:px-12 text-center flex flex-row items-center justify-between">
         {/* <p className="font-semibold text-sm md:text-base">Made by Deepak</p> */}
         <div className="flex flex-row text-lg md:text-2xl gap-3 md:gap-5">
-          <a href={"https://github.com/DeepakS-Github"} target="_blank">
+          <a href={"https://github.com/Amru2010/Agro-Connect/"} target="_blank">
             <FaGithub />
           </a>
-          <a href={"https://www.linkedin.com/in/thisisdeepak/"} target="_blank">
+          <a href={"/"} target="_blank">
             <FaLinkedinIn />
           </a>
           <a href={"/"}>
             <FaGooglePlusG />
           </a>
-          <a href={"https://www.instagram.com/this_is__deepaks/"} target="_blank">
+          <a href={"/"} target="_blank">
             <FaInstagram />     
           </a>
         </div>

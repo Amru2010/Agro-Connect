@@ -1,10 +1,9 @@
-# CropConnect
+# AgroConnect
 
-CropConnect is a web platform designed for wholesale crop trading, connecting sellers and consumers seamlessly. Although still in development, CropConnect offers a robust set of features for both sellers and consumers in the agricultural marketplace.
+AgroConnect is a web platform designed for wholesale crop trading, connecting sellers and consumers seamlessly. Although still in development, AgroConnect offers a robust set of features for both sellers and consumers in the agricultural marketplace.
 
 ## Deployed Link
 
-https://crop-connect-lime.vercel.app/
 
 ## Architecture
 
@@ -12,7 +11,7 @@ https://crop-connect-lime.vercel.app/
 
 ## Features
 
-1. **Dual Interfaces**: CropConnect provides separate interfaces for consumers and sellers, accessible through the navbar with options for SignUp and SignIn including email verification for the created account.
+1. **Dual Interfaces**: AgroConnect provides separate interfaces for consumers and sellers, accessible through the navbar with options for SignUp and SignIn including email verification for the created account.
 
 ***Seller Side***
 
@@ -60,20 +59,20 @@ https://crop-connect-lime.vercel.app/
 
 ## Installation
 
-To run CropConnect locally, ensure you have NodeJS and MongoDB installed. Follow these steps:
+To run AgroConnect locally, ensure you have NodeJS and MongoDB installed. Follow these steps:
 
 1. **Clone the repository**:
     ```bash
     git clone <repository-url>
-    cd CropConnect
+    cd AgroConnect
     ```
 
 2. **Frontend Setup**:
-    - Navigate to the CropConnect `client` folder.
+    - Navigate to the AgroConnect `client` folder.
     - Create a `.env` file in the root directory of the `client` folder.
     - Add the following environment variables to the client `.env` file:
         ```plaintext
-        VITE_CROPCONNECT_API = "https://cropconnect-backend.vercel.app/" 
+        VITE_AgroConnect_API = "https://AgroConnect-backend.vercel.app/" 
         # Replace if you want to run the Backend local server to http://localhost:8080/
         ```
     - To run the Frontend:
@@ -83,7 +82,7 @@ To run CropConnect locally, ensure you have NodeJS and MongoDB installed. Follow
         ```
 
 3. **Backend Setup**:
-    - Navigate to the CropConnect `server` folder.
+    - Navigate to the AgroConnect `server` folder.
     - Create a `.env` file in the root directory of the `server` folder.
     - Add the following environment variables to the server `.env` file:
         ```plaintext
@@ -105,11 +104,11 @@ To run CropConnect locally, ensure you have NodeJS and MongoDB installed. Follow
         node index.js
         ```
 
-By following these steps, you'll have the CropConnect application running locally on your machine. Adjust configurations as needed for your development environment.
+By following these steps, you'll have the AgroConnect application running locally on your machine. Adjust configurations as needed for your development environment.
 
 ## Contribution
 
-CropConnect welcomes contributions from the community. Feel free to open issues or submit pull requests to help improve the platform.
+AgroConnect welcomes contributions from the community. Feel free to open issues or submit pull requests to help improve the platform.
 
 
 **If you find this project helpful, we'd appreciate it if you could give it a star ⭐.**

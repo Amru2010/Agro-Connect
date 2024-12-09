@@ -3,7 +3,7 @@ import io from "socket.io-client";
 
 const useStockUpdateSocket = (setProductDashboardData) => {
   useEffect(() => {
-    const socket = io(import.meta.env.VITE_CROPCONNECT_API, {
+    const socket = io(import.meta.env.VITE_AgroConnect_API, {
       transports: ["websocket"],
     });
 

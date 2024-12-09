@@ -51,7 +51,7 @@ function Navbar() {
       <div className="flex flex-wrap items-center justify-between mx-auto px-4 md:px-12 h-12">
         <a href="/" className="flex items-center">
           <span className="text-xl md:text-2xl font-medium whitespace-nowrap">
-            <span className="text-red-500 font-bold">C</span>rop
+            <span className="text-red-500 font-bold">A</span>gro
             <span className="text-red-500 font-bold">C</span>onnect
           </span>
         </a>
