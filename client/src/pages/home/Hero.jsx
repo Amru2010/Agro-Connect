@@ -1,5 +1,20 @@
-import React from "react";
-import useProgressiveImg from "../../hooks/image/useProgressiveImg";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { useMousePosition } from "../../hooks/products/useMousePosition";
+
+function useProgressiveImg(lowQualitySrc, highQualitySrc) {
+  const [src, setSrc] = useState(lowQualitySrc);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = highQualitySrc;
+    img.onload = () => {
+      setSrc(highQualitySrc);
+    };
+  }, [highQualitySrc]);
+
+  return [src, { blur: src === lowQualitySrc }];
+}
 
 function Hero() {
   const [src, { blur }] = useProgressiveImg(
@@ -7,37 +22,58 @@ function Hero() {
     "/images/home-banner/home.webp"
   );
 
-  return (
-    <>
-      <section
-        className={`relative overflow-hidden  lg:flex h-[30vh] sm:h-[30vh] lg:h-screen lg:items-center `}
-      >
-        <div className="z-10 absolute mx-auto max-w-screen-xl lg:px-24 px-4 sm:px-6 top-[50%] -translate-y-[50%]">
-          <div className="max-w-xl text-center sm:text-left">
-            <h1 className="text-3xl font-bold md:text-5xl">
-              Agro
-              <strong className="font-bold text-rose-700">Connect</strong>
-            </h1>
+  const mousePosition = useMousePosition();
 
-            <p className="mt-4 max-w-lg sm:text-xl sm:leading-relaxed">
-              Connecting Farmers and Consumers - Bringing Fresh Produce to Your
-              Doorstep!
-            </p>
-          </div>
-        </div>
-        <div
-          className="relative w-full h-full"
-          style={{
-            backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.25)), url(${src})`,
-            filter: blur ? "blur(20px)" : "none",
-            // backgroundImage: `url(${src})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
-        ></div>
-      </section>
-    </>
+  return (
+    <section className="relative overflow-hidden h-screen flex items-center justify-center">
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url(${src})`,
+          filter: blur ? "blur(20px)" : "none",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent z-10" />
+
+      <motion.div
+        className="absolute inset-0 z-20"
+        animate={{
+          background: `radial-gradient(600px at ${mousePosition.x}px ${mousePosition.y}px, rgba(29, 78, 216, 0.15), transparent 80%)`,
+        }}
+      />
+
+      <div className="relative z-30 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="backdrop-blur-md bg-white/10 p-8 rounded-2xl shadow-2xl"
+        >
+          <h1 className="text-4xl sm:text-6xl font-extrabold text-white mb-4">
+            Agro
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-400 to-rose-700">
+              Connect
+            </span>
+          </h1>
+          <p className="text-xl sm:text-2xl text-gray-300 mb-8">
+            Connecting Farmers and Consumers - Bringing Fresh Produce to Your
+            Doorstep!
+          </p>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-3 bg-gradient-to-r from-rose-500 to-rose-700 text-white font-bold rounded-full text-lg transition duration-300 ease-in-out transform hover:shadow-lg"
+          >
+            Get Started
+          </motion.button>
+        </motion.div>
+      </div>
+
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent z-20" />
+    </section>
   );
 }
 
