@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useMousePosition } from "../../hooks/products/useMousePosition";
-
+import { useNavigate } from "react-router-dom";
 function useProgressiveImg(lowQualitySrc, highQualitySrc) {
   const [src, setSrc] = useState(lowQualitySrc);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const img = new Image();
     img.src = highQualitySrc;
@@ -16,7 +16,7 @@ function useProgressiveImg(lowQualitySrc, highQualitySrc) {
   return [src, { blur: src === lowQualitySrc }];
 }
 
-function Hero() {
+function Hero({ scrollToCategories }) {
   const [src, { blur }] = useProgressiveImg(
     "/images/home-banner/home-compressed.webp",
     "/images/home-banner/home.webp"
@@ -24,6 +24,9 @@ function Hero() {
 
   const mousePosition = useMousePosition();
 
+  const handleGetStarted = () => {
+    scrollToCategories();
+  };
   return (
     <section className="relative overflow-hidden h-screen flex items-center justify-center">
       <div
@@ -64,6 +67,7 @@ function Hero() {
           </p>
           <motion.button
             whileHover={{ scale: 1.05 }}
+            onClick={handleGetStarted}
             whileTap={{ scale: 0.95 }}
             className="px-8 py-3 bg-gradient-to-r from-rose-500 to-rose-700 text-white font-bold rounded-full text-lg transition duration-300 ease-in-out transform hover:shadow-lg"
           >
